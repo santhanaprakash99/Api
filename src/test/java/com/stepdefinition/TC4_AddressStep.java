@@ -24,6 +24,11 @@ import io.restassured.http.Header;
 import io.restassured.http.Headers;
 import io.restassured.response.Response;
 
+/**
+ * @author Santhanam
+ * @see Address module API Automation
+ * @since 02-06-23
+ */
 public class TC4_AddressStep extends BaseClass {
 	Response response;
 	int address_id;
@@ -48,6 +53,15 @@ public class TC4_AddressStep extends BaseClass {
 
 	}
 
+	/**
+	 * @author Santhanam
+	 * @param firstName, lastName, String mobile, apartment, state, city, country,
+	 *                   zipcode, address, address_type
+	 * @see this method is used to add request body for new address
+	 * 
+	 * @since 02-06-23
+	 */
+
 	@When("User add request body for new address {string},{string},{string},{string},{string},{string},{string},{string},{string} and {string}")
 	public void user_add_request_body_for_new_address_and(String firstName, String lastName, String mobile,
 			String apartment, String state, String city, String country, String zipcode, String address,
@@ -60,6 +74,13 @@ public class TC4_AddressStep extends BaseClass {
 		addBody(addAddressPayload);
 	}
 
+	/**
+	 * @author Santhanam
+	 * @param reqType
+	 * @see this method is used to send request for addUserAddress endpoint
+	 * @since 02-06-23
+	 */
+
 	@When("User send {string} request for addUserAddress endpoint")
 	public void user_send_request_for_add_user_address_endpoint(String reqType) {
 
@@ -69,8 +90,16 @@ public class TC4_AddressStep extends BaseClass {
 		TC1_LoginStep.globalDatas.setStatusCode(statusCode);
 	}
 
+	/**
+	 * @author Santhanam
+	 * @see this method is used to verify the addUserAddres response matches with
+	 *      expected message and save the address id
+	 * @since 02-06-23
+	 */
+
 	@Then("User should verify the addUserAddres response matches with {string} and save the address_id")
-	public void user_should_verify_the_add_user_addres_response_matches_with_and_save_the_address_id(String expMessage) {
+	public void user_should_verify_the_add_user_addres_response_matches_with_and_save_the_address_id(
+			String expMessage) {
 
 		AddUserAddress_Output_Pojo addUserAddress_Output_Pojo = response.as(AddUserAddress_Output_Pojo.class);
 
@@ -82,6 +111,7 @@ public class TC4_AddressStep extends BaseClass {
 		TC1_LoginStep.globalDatas.setaddressId(addressId);
 
 	}
+
 	@Given("User add headers  for accessing updateAddress endpoint")
 	public void user_add_headers_for_accessing_update_address_endpoint() {
 		List<Header> listHeadres = new ArrayList<>();
@@ -99,6 +129,14 @@ public class TC4_AddressStep extends BaseClass {
 
 	}
 
+	/**
+	 * @author Santhanam
+	 * @param addressIdString, firstName, lastName, mobile, apartment, state, city,
+	 *                         country, zipcode, address, addressType
+	 * @see this method is used to add request body for for new address id
+	 * @since 02-06-23
+	 */
+
 	@When("User add request body for new address id  {string},{string},{string},{string},{string},{string},{string},{string},{string},{string} and {string}")
 	public void user_add_request_body_for_new_address_id_and(String addressId, String firstName, String lastName,
 			String mobile, String apartment, String state, String city, String country, String zipcode, String address,
@@ -112,6 +150,13 @@ public class TC4_AddressStep extends BaseClass {
 		addBody(updateUserAddressPayload);
 	}
 
+	/**
+	 * @author Santhanam
+	 * @param reqType
+	 * @see this method is used to add request for updateUserAddress endpoin
+	 * @since 02-06-23
+	 */
+
 	@When("User send {string} request for updateUserAddress endpoint")
 	public void user_send_request_for_update_user_address_endpoint(String reqType) {
 
@@ -120,6 +165,14 @@ public class TC4_AddressStep extends BaseClass {
 		TC1_LoginStep.globalDatas.setStatusCode(statusCode);
 
 	}
+
+	/**
+	 * @author Santhanam
+	 * @param expMessage
+	 * @see this method is used to verify the updateUserAddress response matches
+	 *      with expected message
+	 * @since 02-06-23
+	 */
 
 	@Then("User should verify the updateUserAddress response matches with {string}")
 	public void user_should_verify_the_update_user_address_response_matches_with(String expMessage) {
@@ -147,6 +200,13 @@ public class TC4_AddressStep extends BaseClass {
 		addHeaders(headers);
 	}
 
+	/**
+	 * @author Santhanam
+	 * @param addressId
+	 * @see this method is used to add request for getUserAddress endpoint
+	 * @since 02-06-23
+	 */
+
 	@When("User send {string} request for getUserAddress endpoint")
 	public void user_send_request_for_get_user_address_endpoint(String reqType) {
 		response = addReqType(reqType, Endpoints.GETUSERADDRESS);
@@ -154,6 +214,14 @@ public class TC4_AddressStep extends BaseClass {
 		TC1_LoginStep.globalDatas.setStatusCode(statusCode);
 
 	}
+
+	/**
+	 * @author Santhanam
+	 * @param addressId
+	 * @see this method is used to verify the getUserAddress response city name
+	 *      matches with expected message
+	 * @since 02-06-23
+	 */
 
 	@Then("User should verify the getUserAddress response city name matches with {string}")
 	public void user_should_verify_the_get_user_address_response_city_name_matches_with(String expCityName) {
@@ -188,14 +256,25 @@ public class TC4_AddressStep extends BaseClass {
 
 	}
 
+	/**
+	 * @author Santhanam
+	 * @param addressId
+	 * @see this method is used to add request body for delete the existing address
+	 * @since 02-06-23
+	 */
 	@When("User add request body for delete the existing {string}")
-	public void user_add_request_body_for_delete_the_existing(String string) {
+	public void user_add_request_body_for_delete_the_existing(String addressId) {
 
 		DeleteAddress_Input_Pojo deleteAddresspayload = manager.getAddressPayload()
 				.deleteAddresspayload(TC1_LoginStep.globalDatas.getaddressId());
 		addBody(deleteAddresspayload);
 	}
 
+	/**
+	 * @author Santhanam
+	 * @param reqType
+	 * @see this method is used to send request for deleteUserAddress endpoint
+	 */
 	@When("User send {string} request for deleteUserAddress endpoint")
 	public void user_send_request_for_delete_user_address_endpoint(String reqType) {
 		response = addReqType(reqType, Endpoints.DELETEUSERADDRESS);
@@ -205,15 +284,16 @@ public class TC4_AddressStep extends BaseClass {
 	}
 
 	/**
+	 * @author Santhanam
 	 * @param expMessage
+	 * @see this method is used to verify the deleteUserAddress response matches
+	 *      with expected message
 	 */
 	@Then("User should verify the deleteUserAddress response matches with {string}")
 	public void user_should_verify_the_delete_user_address_response_matches_with(String expMessage) {
 
 		DeleteAddress_Output_Pojo deleteAddress_Output_Pojo = response.as(DeleteAddress_Output_Pojo.class);
 		String message = deleteAddress_Output_Pojo.getMessage();
-		String statusLine = response.statusLine();
-		System.out.println(statusLine);
 		Assert.assertEquals("verify success message", expMessage, message);
 
 	}

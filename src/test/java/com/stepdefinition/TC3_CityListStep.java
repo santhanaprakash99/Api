@@ -19,6 +19,11 @@ import io.restassured.http.Header;
 import io.restassured.http.Headers;
 import io.restassured.response.Response;
 
+/**
+ * @author Santhanam
+ * @see City module API Automation
+ * @since 02-06-23
+ */
 public class TC3_CityListStep extends BaseClass {
 
 	Response response;
@@ -40,12 +45,26 @@ public class TC3_CityListStep extends BaseClass {
 
 	}
 
+	/**
+	 * @author Santhanam
+	 * @param stateId
+	 * @see this method is used to add request body for citylist
+	 * @since 02-06-23
+	 */
+
 	@When("User add request body for citylist {string}")
 	public void user_add_request_body_for_citylist(String stateId) {
 		CityList_Input_Pojo cityListPayload = manager.getCityPayload()
 				.cityListPayload(TC1_LoginStep.globalDatas.getStateId());
 		addBody(cityListPayload);
 	}
+
+	/**
+	 * @author Santhanam
+	 * @param reqType
+	 * @see this method is used to send request for citylist
+	 * @since 02-06-23
+	 */
 
 	@When("User send {string} request for citylist endpoint")
 	public void user_send_request_for_citylist_endpoint(String reqType) {
@@ -54,6 +73,13 @@ public class TC3_CityListStep extends BaseClass {
 		TC1_LoginStep.globalDatas.setStatusCode(statusCode);
 
 	}
+
+	/**
+	 * @author Santhanam
+	 * @param expCityName
+	 * @see this method is used to verify the citylist response message matches with
+	 *      expected message
+	 */
 
 	@Then("User verify the citylist response message matches {string} and save city id")
 	public void user_verify_the_citylist_response_message_matches_and_save_city_id(String expCityName) {

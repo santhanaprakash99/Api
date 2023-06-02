@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.tablesorter.min.js"></script>
+<script src="js/Chart.min.js"></script>
+<script src="js/moment.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
+<link rel="stylesheet" href="css/cucumber.css" type="text/css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="shortcut icon" href="images/favicon.png"/>
+
+<script>
+$(document).ready(function() {
+    // this will tell tablesorter to try looking for the data-value attribute
+    // if present, it'll sort by that instead
+    // otherwise, it'll sort by the text content of the table cell
+    $("#tablesorter").tablesorter({
+        textAttribute: 'data-value',
+        // ignores the first row of the header, the 'scenario', 'steps', since
+        // sorting those doesn't make sense
+        selectorHeaders: '> thead tr:not(.dont-sort) th',
+        // use a stable sort
+        sortStable: true
+    });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<title>Cucumber Reports  - Steps Overview</title>
+
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navigation">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse">
+      <p class="navbar-text navbar-left">Cucumber Report</p>
+      <ul class="nav navbar-nav navbar-right">
+        <li role="presentation" ><a href="overview-features.html">Features</a></li>
+        <li role="presentation" ><a href="overview-tags.html">Tags</a></li>
+        <li role="presentation"     class="active" ><a href="overview-steps.html">Steps</a></li>
+        <li role="presentation" ><a href="overview-failures.html">Failures</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container-fluid">
+  <div class="col-md-5 col-md-offset-1">
+
+<table class="table table-bordered" id="build-info">
+  <thead>
+    <tr>
+      <th>Project</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="info">
+      <td>OmrBranch Report</td>
+      <td>02 Jun 2023, 18:38</td>
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+  <div class="col-md-3 col-md-offset-2">
+  </div>
+</div>
+
+
+<div id="report-lead" class="container-fluid">
+  <div class="col-md-10 col-md-offset-1">
+    <h2>Steps Statistics</h2>
+      <p>The following graph shows step statistics for this build. Below list is based on results.
+ step does not provide information about result then is not listed below.
+ Additionally @Before and @After are not counted because they are part of the scenarios, not steps.</p>
+  </div>
+</div>
+
+<div class="container-fluid" id="report">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <table id="tablesorter" class="stats-table table-hover">
+
+        <thead>
+          <tr class="header">
+            <th>Implementation</th>
+            <th>Occurrences</th>
+            <th>Average duration</th>
+            <th>Max duration</th>
+            <th>Total durations</th>
+            <th>Ratio</th>
+          </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+              <td class="location">com.stepdefinition.CommonStep.user_should_verify_the_status_code_is(int)</td>
+              <td>8</td>
+              <td class="duration" data-value="625000">0.000</td>
+              <td class="duration" data-value="625000">0.003</td>
+              <td class="duration" data-value="5000000">0.005</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.stepdefinition.TC1_LoginStep.use_add_header()</td>
+              <td>1</td>
+              <td class="duration" data-value="9654000000">9.654</td>
+              <td class="duration" data-value="9654000000">9.654</td>
+              <td class="duration" data-value="9654000000">9.654</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.stepdefinition.TC1_LoginStep.user_add_basic_authentication_for_login()</td>
+              <td>1</td>
+              <td class="duration" data-value="814000000">0.814</td>
+              <td class="duration" data-value="814000000">0.814</td>
+              <td class="duration" data-value="814000000">0.814</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.stepdefinition.TC1_LoginStep.user_send_request_for_login_endpoint(java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="12953000000">12.953</td>
+              <td class="duration" data-value="12953000000">12.953</td>
+              <td class="duration" data-value="12953000000">12.953</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.stepdefinition.TC1_LoginStep.user_verify_the_login_response_body_first_name_present_as_and_get_the_logtoken(java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="755000000">0.755</td>
+              <td class="duration" data-value="755000000">0.755</td>
+              <td class="duration" data-value="755000000">0.755</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.stepdefinition.TC2_StateListStep.user_add_headers_for_the_statelist()</td>
+              <td>1</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.stepdefinition.TC2_StateListStep.user_send_request_for_statelist_endpoint(java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="930000000">0.930</td>
+              <td class="duration" data-value="930000000">0.930</td>
+              <td class="duration" data-value="930000000">0.930</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.stepdefinition.TC2_StateListStep.user_verify_the_statelist_response_message_matches_and_save_state_id(java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="100000000">0.100</td>
+              <td class="duration" data-value="100000000">0.100</td>
+              <td class="duration" data-value="100000000">0.100</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.stepdefinition.TC3_CityListStep.user_add_headers_for_the_citylist()</td>
+              <td>1</td>
+              <td class="duration" data-value="4000000">0.004</td>
+              <td class="duration" data-value="4000000">0.004</td>
+              <td class="duration" data-value="4000000">0.004</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.stepdefinition.TC3_CityListStep.user_add_request_body_for_citylist(java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="287000000">0.287</td>
+              <td class="duration" data-value="287000000">0.287</td>
+              <td class="duration" data-value="287000000">0.287</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.stepdefinition.TC3_CityListStep.user_send_request_for_citylist_endpoint(java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="1211000000">1.211</td>
+              <td class="duration" data-value="1211000000">1.211</td>
+              <td class="duration" data-value="1211000000">1.211</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.stepdefinition.TC3_CityListStep.user_verify_the_citylist_response_message_matches_and_save_city_id(java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="68000000">0.068</td>
+              <td class="duration" data-value="68000000">0.068</td>
+              <td class="duration" data-value="68000000">0.068</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.stepdefinition.TC4_AddressStep.user_add_header_and_bearer_authorization_for_accessing_address_endpoint()</td>
+              <td>1</td>
+              <td class="duration" data-value="1000000">0.001</td>
+              <td class="duration" data-value="1000000">0.001</td>
+              <td class="duration" data-value="1000000">0.001</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.stepdefinition.TC4_AddressStep.user_add_header_and_bearer_authorization_for_accessing_delete_address_endpoint()</td>
+              <td>1</td>
+              <td class="duration" data-value="1000000">0.001</td>
+              <td class="duration" data-value="1000000">0.001</td>
+              <td class="duration" data-value="1000000">0.001</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.stepdefinition.TC4_AddressStep.user_add_header_and_bearer_authorization_for_accessing_get_user_address_endpoint()</td>
+              <td>1</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="duration" data-value="0">0.000</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.stepdefinition.TC4_AddressStep.user_add_headers_for_accessing_update_address_endpoint()</td>
+              <td>1</td>
+              <td class="duration" data-value="10000000">0.010</td>
+              <td class="duration" data-value="10000000">0.010</td>
+              <td class="duration" data-value="10000000">0.010</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.stepdefinition.TC4_AddressStep.user_add_request_body_for_delete_the_existing(java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="18000000">0.018</td>
+              <td class="duration" data-value="18000000">0.018</td>
+              <td class="duration" data-value="18000000">0.018</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.stepdefinition.TC4_AddressStep.user_add_request_body_for_new_address_and(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="38000000">0.038</td>
+              <td class="duration" data-value="38000000">0.038</td>
+              <td class="duration" data-value="38000000">0.038</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.stepdefinition.TC4_AddressStep.user_add_request_body_for_new_address_id_and(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="22000000">0.022</td>
+              <td class="duration" data-value="22000000">0.022</td>
+              <td class="duration" data-value="22000000">0.022</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.stepdefinition.TC4_AddressStep.user_send_request_for_add_user_address_endpoint(java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="925000000">0.925</td>
+              <td class="duration" data-value="925000000">0.925</td>
+              <td class="duration" data-value="925000000">0.925</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.stepdefinition.TC4_AddressStep.user_send_request_for_delete_user_address_endpoint(java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="839000000">0.839</td>
+              <td class="duration" data-value="839000000">0.839</td>
+              <td class="duration" data-value="839000000">0.839</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.stepdefinition.TC4_AddressStep.user_send_request_for_get_user_address_endpoint(java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="997000000">0.997</td>
+              <td class="duration" data-value="997000000">0.997</td>
+              <td class="duration" data-value="997000000">0.997</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.stepdefinition.TC4_AddressStep.user_send_request_for_update_user_address_endpoint(java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="826000000">0.826</td>
+              <td class="duration" data-value="826000000">0.826</td>
+              <td class="duration" data-value="826000000">0.826</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.stepdefinition.TC4_AddressStep.user_should_verify_the_add_user_addres_response_matches_with_and_save_the_address_id(java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="24000000">0.024</td>
+              <td class="duration" data-value="24000000">0.024</td>
+              <td class="duration" data-value="24000000">0.024</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.stepdefinition.TC4_AddressStep.user_should_verify_the_delete_user_address_response_matches_with(java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="4000000">0.004</td>
+              <td class="duration" data-value="4000000">0.004</td>
+              <td class="duration" data-value="4000000">0.004</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.stepdefinition.TC4_AddressStep.user_should_verify_the_get_user_address_response_city_name_matches_with(java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="35000000">0.035</td>
+              <td class="duration" data-value="35000000">0.035</td>
+              <td class="duration" data-value="35000000">0.035</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.stepdefinition.TC4_AddressStep.user_should_verify_the_update_user_address_response_matches_with(java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="4000000">0.004</td>
+              <td class="duration" data-value="4000000">0.004</td>
+              <td class="duration" data-value="4000000">0.004</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.stepdefinition.TC5_SearchProductStep.user_add_headers_for_accessing_searcha_product_endpoint()</td>
+              <td>1</td>
+              <td class="duration" data-value="1000000">0.001</td>
+              <td class="duration" data-value="1000000">0.001</td>
+              <td class="duration" data-value="1000000">0.001</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.stepdefinition.TC5_SearchProductStep.user_add_request_body_for_search_product(java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="26000000">0.026</td>
+              <td class="duration" data-value="26000000">0.026</td>
+              <td class="duration" data-value="26000000">0.026</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.stepdefinition.TC5_SearchProductStep.user_send_request_for_searcha_product_endpoint(java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="822000000">0.822</td>
+              <td class="duration" data-value="822000000">0.822</td>
+              <td class="duration" data-value="822000000">0.822</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">com.stepdefinition.TC5_SearchProductStep.user_should_verify_the_search_product_response_matches_with(java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="11000000">0.011</td>
+              <td class="duration" data-value="11000000">0.011</td>
+              <td class="duration" data-value="11000000">0.011</td>
+              <td class="passed">100.00%</td>
+            </tr>
+        </tbody>
+
+        <tfoot class="total">
+          <tr>
+            <td>31</td>
+            <td>38</td>
+            <td class="duration">0.825</td>
+            <td class="duration">12.953</td>
+            <td class="duration">31.385</td>
+            <td>Totals</td>
+          </tr>
+        </tfoot>
+
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<nav class="navbar navbar-default" id="footer">
+  <div class="container-fluid">
+    <p class="navbar-text navbar-right">
+        <small>generate Cucumber HTML reports via:&nbsp;</small>
+        <a class="navbar-link" href="https://github.com/jenkinsci/cucumber-reports-plugin">Jenkins Plugin</a> |
+        <a class="navbar-link" href="https://github.com/damianszczepanik/cucumber-reporting">Standalone</a> |
+        <a class="navbar-link" href="https://github.com/damianszczepanik/cucumber-sandwich">Sandwich</a> |
+        <a class="navbar-link" href="https://github.com/damianszczepanik/maven-cucumber-reporting">Maven</a>
+        &nbsp;&nbsp;
+    </p>
+  </div>
+</nav>
+
+</body>
+</html>

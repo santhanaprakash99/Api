@@ -13,7 +13,7 @@ import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(tags=("@Login or @State or @City or @Address or @@SearchProduct"),features = "src/test/resources/Features/", glue = "com.stepdefinition", plugin = {
+@CucumberOptions(tags=("@Login or @State or @City or @Address or @SearchProduct"),features = "src/test/resources/Features/", glue = "com.stepdefinition", plugin = {
 		"pretty", "json:target/output.json" }, dryRun = false, monochrome = true)
 
 public class TestRunner extends BaseClass {

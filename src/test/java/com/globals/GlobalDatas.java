@@ -5,9 +5,8 @@ public class GlobalDatas {
 	private int StatusCode;
 	private int stateid;
 	private int cityid;
-	private String addressId;
 	private int addressid;
-
+	private String addressId;
 	private String stateId;
 	private String cityId;
 	private String logtoken;
